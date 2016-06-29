@@ -6,12 +6,22 @@ require './lib/value_verification_process'
 
 BALANCE_FILE = 'saldo.csv'
 SEPARATOR = ","
+MSG = <<HELP
+[ERRO] Recebido #{ARGV.size} argumento(s).
+A maneira de utilizar esse script é:
+
+#{$0} /path/to/contas.csv /path/to/transacoes.csv
+
+e será gerado o arquivo "#{BALANCE_FILE}" com o calculo final.
+HELP
+
+raise MSG unless ARGV.size == 2
 
 accounts_with_balance = {}
-c = File.open("files/contas.csv")
-t = File.open("files/transacoes.csv")
+accounts     = File.open(ARGV[0])
+transactions = File.open(ARGV[1])
 
-c.each do |line|
+accounts.each do |line|
   id, initial_amount = line.split SEPARATOR
 
   if AccountIdVerificationProcess.process(id) && ValueVerificationProcess.process(initial_amount)
@@ -19,7 +29,7 @@ c.each do |line|
   end
 end
 
-t.each do |line|
+transactions.each do |line|
   id, transaction = line.split SEPARATOR
 
   if AccountIdVerificationProcess.process(id) && ValueVerificationProcess.process(transaction)
