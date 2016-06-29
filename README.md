@@ -25,13 +25,13 @@ Caso o resultado exibido seja algo diferente de `/usr/bin/ruby` será preciso al
 #!/usr/bin/ruby
 ```
 
-  - **MiniTest:** os testes estão utilizando a gem *'minitest'*, para instala-la execute no terminal:
+  - **MiniTest: (opcional)** é somente necessário caso você queira rodar os testes do exercício, os testes estão utilizando a gem *'minitest'*, para instala-la execute no terminal:
 
 ```
 gem install minitest
 ```
 
-Nos exemplos foi utilizada a versão *'5.9.0'* da gem.
+Versão do minitest utilizada nos testes: *'5.9.0'*
 
 os testes estão armazenados na pasta `test/` para executar o teste da classe *'account'* por exemplo execute:
 
@@ -39,19 +39,27 @@ os testes estão armazenados na pasta `test/` para executar o teste da classe *'
 ruby test/account_test.rb
 ```
 
-  - **Rake:** criada uma task para rodar todos os testes da pasta *'test/'* de uma única vez:
+  - **Rake: (opcional)** é somente necessário caso você queira rodar todos os estes em um unico comando, foi criada uma task para rodar todos os testes da pasta *'test/'* de uma única vez:
 
 ```
 gem install rake
 ```
 
-Versão utilizada nos testes: *'11.1.2'*
+Versão do rake utilizada nos testes: *'11.1.2'*
 
 Para rodar todos os testes execute no terminal:
 
 ```
 rake test
 ```
+
+  - **Bundler: (opcional)** é somente necessário caso você queira usar o comando `bundle install` para gerenciaras dependências do projeto, descritas nos arquivos Gemfile e Gemfile.lock, para instalar a gem execute:
+
+```
+gem install bundler
+```
+
+Versão do bundler utilizada durante os testes: *'1.12.5'*
 
 ## Considerações
 
@@ -61,6 +69,6 @@ rake test
 
 ## Possíveis alterações no futuro
 
-  - A classe Account poderia ter sido separada do calculo da multa, mas como o exercício tem um escopo limitado, a principio não pareceu ser um grande problema manter esse único cálculo nessa classe por enquanto. 
+  - A classe Account poderia ter sido separada do calculo da multa, mas como o exercício tem um escopo limitado, a principio não pareceu ser um grande problema manter esse único cálculo nessa classe por enquanto.
   - Após o descarte de algum dado considerado *inválido*, exibir para o usuário os dados que estão sendo descartados, e se deseja continuar a execução do script.
   - A única tratativa sobre os arquivos é a necessidade de precisar receber dois arquivos, caso os arquivos passados não existam, o erro é gerado pelo ruby, mas poderia ter uma mensagem mais amigavel para o usuário.
