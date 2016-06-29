@@ -1,22 +1,26 @@
 #!/usr/bin/ruby
 
+require './lib/account'
+
 accounts_with_balance = {}
 c = File.open("files/contas.csv")
 t = File.open("files/transacoes.csv")
 
 c.each do |line|
   id, initial_amount = line.split ","
-  accounts_with_balance[id] = initial_amount.to_i
+
+  accounts_with_balance[id] = Account.new(id, initial_amount)
 end
 
 t.each do |line|
   id, transaction = line.split ","
-  accounts_with_balance[id] += transaction.to_i
+
+  accounts_with_balance[id].add_transaction transaction
 end
 
 f = File.new("saldo.csv", "w")
-accounts_with_balance.each do |id, balance|
-  f.write("#{id},#{balance}\n")
-  puts "#{id},#{balance}"
+accounts_with_balance.each do |id, account|
+  f.write("#{id},#{account.balance}\n")
+  puts "#{id},#{account.balance}"
 end
 f.close
