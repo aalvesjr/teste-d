@@ -4,6 +4,7 @@ require './lib/account'
 require './lib/account_id_verification_process'
 require './lib/value_verification_process'
 
+BALANCE_FILE = 'saldo.csv'
 SEPARATOR = ","
 
 accounts_with_balance = {}
@@ -26,7 +27,7 @@ t.each do |line|
   end
 end
 
-f = File.new("saldo.csv", "w")
+f = File.new(BALANCE_FILE, "w")
 accounts_with_balance.each do |id, account|
   f.write("#{id},#{account.balance}\n")
   puts "#{id},#{account.balance}"
