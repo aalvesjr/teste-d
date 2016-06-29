@@ -1,4 +1,16 @@
-O Script *"exercicio"* visa calcular o saldo de uma conta corrente, de acordo com seu saldo inicial, utilizando o arquivo "contas.csv" para obter esse valor e calculando o saldo final, após aplicar as transações descritas no arquivo "transações.csv" ambos dentro da pasta "files/"
+O Script *"exercicio"* visa calcular o saldo de uma conta corrente, de acordo com seu saldo inicial, utilizando um arquivo com as contas e seus saldos iniciais, por exemplo: "files/contas.csv", e um arquivo de transações por conta (depósito ou débito baseado no ID da conta), cada linha desse segundo arquivo é uma transação a ser executada e após aplicar as transações descritas no arquivo, por exemplo "files/transacoes.csv" será gerado o arquivo "saldo.csv" na mesma pasta do script 'exercicio' alem do resultado também ser exibido na tela.
+
+## Modo de usar
+
+Executar os seguintes passos no terminal:
+
+```
+git clone https://github.com/aalvesjr/teste-d.git
+cd teste-d
+bundle install
+
+./exercicio path/to/contas.csv path/to/transacoes.csv
+```
 
 ## Pré-requisitos
   - **Ruby:** o script foi feito utilizando a linguagem Ruby, caso não tenha certeza se ela esta instalada na sua maquina, execute no terminal (no linux):
@@ -51,3 +63,4 @@ rake test
 
   - A classe Account poderia ter sido separada do calculo da multa, mas como o exercício tem um escopo limitado, a principio não pareceu ser um grande problema manter esse único cálculo nessa classe por enquanto. 
   - Após o descarte de algum dado considerado *inválido*, exibir para o usuário os dados que estão sendo descartados, e se deseja continuar a execução do script.
+  - A única tratativa sobre os arquivos é a necessidade de precisar receber dois arquivos, caso os arquivos passados não existam, o erro é gerado pelo ruby, mas poderia ter uma mensagem mais amigavel para o usuário.
