@@ -27,6 +27,20 @@ os testes estão armazenados na pasta `test/` para executar o teste da classe *'
 ruby test/account_test.rb
 ```
 
+  - **Rake:** criada uma task para rodar todos os testes da pasta *'test/'* de uma única vez:
+
+```
+gem install rake
+```
+
+Versão utilizada nos testes: *'11.1.2'*
+
+Para rodar todos os testes execute no terminal:
+
+```
+rake test
+```
+
 ## Considerações
 
   - Alem da saida do terminal (stdout), o script também gera um arquivo chamado "saldo.csv" com os mesmos dados exibidos como resultado.
