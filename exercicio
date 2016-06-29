@@ -1,6 +1,8 @@
 #!/usr/bin/ruby
 
 require './lib/account'
+require './lib/account_id_verification_process'
+require './lib/value_verification_process'
 
 accounts_with_balance = {}
 c = File.open("files/contas.csv")
@@ -9,13 +11,17 @@ t = File.open("files/transacoes.csv")
 c.each do |line|
   id, initial_amount = line.split ","
 
-  accounts_with_balance[id] = Account.new(id, initial_amount)
+  if AccountIdVerificationProcess.process(id) && ValueVerificationProcess.process(initial_amount)
+    accounts_with_balance[id] = Account.new(id, initial_amount)
+  end
 end
 
 t.each do |line|
   id, transaction = line.split ","
 
-  accounts_with_balance[id].add_transaction transaction
+  if AccountIdVerificationProcess.process(id) && ValueVerificationProcess.process(transaction)
+    accounts_with_balance[id].add_transaction transaction
+  end
 end
 
 f = File.new("saldo.csv", "w")
