@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/aalvesjr/teste-d.svg?style=svg)](https://circleci.com/gh/aalvesjr/teste-d)
+
 O Script *"exercicio"* visa calcular o saldo de uma conta corrente, de acordo com seu saldo inicial, utilizando um arquivo com as contas e seus saldos iniciais, por exemplo: "files/contas.csv", e um arquivo de transações por conta (depósito ou débito baseado no ID da conta), cada linha desse segundo arquivo é uma transação a ser executada e após aplicar as transações descritas no arquivo, por exemplo "files/transacoes.csv" será gerado o arquivo "saldo.csv" na mesma pasta do script 'exercicio' alem do resultado também ser exibido na tela.
 
 ## Modo de usar
